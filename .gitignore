@@ -1,1 +1,12 @@
-.copilot-assistant/
+# Large local video files
+assets/videos/*.mp4
+
+# Environment / secrets
+.env
+.env.*
+!.env.example
+
+# OS / editor files
+.DS_Store
+Thumbs.db
+.vscode/
