@@ -715,3 +715,36 @@
         padding: 6px 2px !important;
     }
 }
+
+/* =========================================================
+   AUTO-FIT CONFEDERATION LOGOS
+   Add this at the VERY BOTTOM of confederations.css
+========================================================= */
+
+/* Keep uploaded logos inside the existing circular placeholder */
+.ugb-logo-placeholder {
+    overflow: hidden;
+}
+
+/* Automatically resize any uploaded/attached logo */
+.ugb-logo-placeholder img {
+    width: 100%;
+    height: 100%;
+
+    /* Shows the COMPLETE logo — no cropping or stretching */
+    object-fit: contain;
+    object-position: center;
+
+    /* Gives the logo breathing room inside the circle */
+    padding: 8px;
+
+    display: block;
+    box-sizing: border-box;
+}
+
+/* Slightly reduce padding on smaller screens */
+@media (max-width: 700px) {
+    .ugb-logo-placeholder img {
+        padding: 6px;
+    }
+}
