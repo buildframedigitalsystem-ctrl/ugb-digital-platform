@@ -686,37 +686,194 @@
 
 
         /* =====================================================
-           FRONTEND PREVIEW ONLY
-        ====================================================== */
-        form.addEventListener("submit", function (event) {
+    LIVE UGB FORM SUBMISSION
+ ====================================================== */
+
+        const WEB_APP_URL =
+            "https://script.google.com/macros/s/AKfycbxBcybrh1k9vd28UrhWhWnUewX3b6v5TgYwxdrD7jVK1hjVVs_Kw1a17eidFMFtQOcV3w/exec";
+
+
+        form.addEventListener("submit", async function (event) {
 
             event.preventDefault();
-
 
             const confederation =
                 document.getElementById("confederation").value;
 
+            const facebookPage =
+                document.getElementById("facebookPage").value.trim();
 
-            if (!confederation) {
+            const logoFile =
+                logoInput.files[0];
+
+            if (!confederation || !facebookPage || !logoFile) {
+
+                alert(
+                    "Please complete all required fields before submitting."
+                );
 
                 return;
-
             }
 
 
-            alert(
-                "Submission preview successful.\n\n" +
+            const submitButton =
+                form.querySelector(".official-submit-button");
 
-                "Selected Confederation: " +
-                confederation +
+            const originalButtonHTML =
+                submitButton.innerHTML;
 
-                "\n\n" +
+            submitButton.disabled = true;
 
-                "The live automated submission will be activated " +
-                "when the UGB backend is connected."
-            );
+            submitButton.innerHTML =
+                "<span>SUBMITTING...</span>";
+
+
+            try {
+
+                const logoBase64 =
+                    await fileToBase64(logoFile);
+
+
+                const submissionData = {
+
+                    formType: "confederation",
+
+                    confederation: confederation,
+
+                    facebookPage: facebookPage,
+
+                    logoBase64: logoBase64,
+
+                    logoName: logoFile.name,
+
+                    logoType:
+                        logoFile.type || "application/octet-stream"
+
+                };
+
+
+                const response =
+                    await fetch(WEB_APP_URL, {
+
+                        method: "POST",
+
+                        headers: {
+                            "Content-Type": "text/plain;charset=utf-8"
+                        },
+
+                        body:
+                            JSON.stringify(submissionData)
+
+                    });
+
+
+                const result =
+                    await response.json();
+
+
+                if (!result.success) {
+
+                    throw new Error(
+                        result.message ||
+                        "Submission could not be completed."
+                    );
+
+                }
+
+
+                alert(
+                    "Submission received successfully!\n\n" +
+                    "UGB Submission ID:\n" +
+                    result.submissionId +
+                    "\n\n" +
+                    "Your information has been submitted for review."
+                );
+
+
+                form.reset();
+
+
+                logoPreview.innerHTML = `
+            <div class="preview-placeholder">
+
+                <span class="preview-image-icon">
+                    ▧
+                </span>
+
+                <small>
+                    Your logo will appear here
+                </small>
+
+            </div>
+        `;
+
+
+            } catch (error) {
+
+                console.error(
+                    "UGB submission error:",
+                    error
+                );
+
+
+                alert(
+                    "We could not submit your information at this time.\n\n" +
+                    "Please try again."
+                );
+
+            } finally {
+
+                submitButton.disabled = false;
+
+                submitButton.innerHTML =
+                    originalButtonHTML;
+
+            }
 
         });
+
+
+        function fileToBase64(file) {
+
+            return new Promise(
+                function (resolve, reject) {
+
+                    const reader =
+                        new FileReader();
+
+
+                    reader.onload =
+                        function () {
+
+                            const result =
+                                reader.result;
+
+                            const base64 =
+                                result.split(",")[1];
+
+                            resolve(base64);
+
+                        };
+
+
+                    reader.onerror =
+                        function () {
+
+                            reject(
+                                new Error(
+                                    "Unable to read the selected logo."
+                                )
+                            );
+
+                        };
+
+
+                    reader.readAsDataURL(file);
+
+                }
+            );
+
+        }
 
     </script>
 
