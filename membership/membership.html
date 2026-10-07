@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="UGB centralized membership registration and member record verification form">
+
+    <title>UGB Membership Form | Universal Guardians Brotherhood</title>
+
+    <link rel="stylesheet" href="membership.css">
+
+    <style>
+        .membership-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+            margin-top: 18px;
+        }
+
+        .membership-grid.one {
+            grid-template-columns: 1fr;
+        }
+
+        .membership-control label,
+        .membership-choice-title {
+            display: block;
+            font-weight: 800;
+            color: #0b2f66;
+            margin-bottom: 7px;
+        }
+
+        .membership-control input,
+        .membership-control select,
+        .membership-control textarea {
+            width: 100%;
+            box-sizing: border-box;
+            border: 1px solid #c8d2df;
+            border-radius: 10px;
+            padding: 13px 14px;
+            font: inherit;
+            background: #fff;
+            color: #172033;
+        }
+
+        .membership-control textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .membership-choice-list {
+            display: grid;
+            gap: 12px;
+            margin-top: 18px;
+        }
+
+        .membership-choice {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            padding: 14px;
+            border: 1px solid #d7dee8;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .membership-choice input {
+            margin-top: 4px;
+        }
+
+        .membership-choice strong {
+            display: block;
+            color: #0b2f66;
+        }
+
+        .membership-choice small,
+        .field-help {
+            display: block;
+            color: #64748b;
+            margin-top: 4px;
+            line-height: 1.45;
+        }
+
+        .membership-section-note {
+            margin: 0 0 14px;
+            color: #64748b;
+            line-height: 1.55;
+        }
+
+        .member-photo-box {
+            padding: 16px;
+            border: 1px dashed #9fb1c7;
+            border-radius: 12px;
+            background: #f8fafc;
+        }
+
+        .consent-box {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            margin-top: 14px;
+            padding: 14px;
+            border: 1px solid #d7dee8;
+            border-radius: 12px;
+            background: #fff;
+        }
+
+        .consent-box input {
+            margin-top: 4px;
+        }
+
+        @media (max-width:700px) {
+            .membership-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="confederation-form-page">
+
+    <!-- =========================================================
+         UGB HERO / IDENTITY BANNER
+    ========================================================== -->
+    <header class="confederation-hero">
+
+        <div class="confederation-hero-globe"></div>
+
+        <div class="confederation-hero-inner">
+
+            <!-- LEFT MESSAGE -->
+            <div class="hero-message">
+                <span>PEOPLE</span>
+                <span>COMMUNITY</span>
+                <span>PARTNERSHIPS</span>
+                <strong>A STRONGER NATION</strong>
+
+                <div class="hero-message-line"></div>
+            </div>
+
+
+            <!-- CENTER LOGO -->
+            <div class="hero-emblem">
+
+                <div class="hero-stars">
+                    ★ ★ ★
+                </div>
+
+                <img src="../assets/logo/ugb-logo.jpg" alt="Universal Guardians Brotherhood">
+
+            </div>
+
+
+            <!-- RIGHT VALUES -->
+            <div class="hero-values">
+
+                <div class="hero-value">
+                    <div class="hero-value-icon">◎</div>
+
+                    <div>
+                        <strong>UNITY</strong>
+                        <span>BEYOND BORDERS</span>
+                    </div>
+                </div>
+
+
+                <div class="hero-value">
+                    <div class="hero-value-icon">♟</div>
+
+                    <div>
+                        <strong>SERVICE</strong>
+                        <span>TO COMMUNITIES</span>
+                    </div>
+                </div>
+
+
+                <div class="hero-value">
+                    <div class="hero-value-icon">◆</div>
+
+                    <div>
+                        <strong>COLLABORATION</strong>
+                        <span>FOR GREATER IMPACT</span>
+                    </div>
+                </div>
+
+
+                <div class="hero-value">
+                    <div class="hero-value-icon">↗</div>
+
+                    <div>
+                        <strong>PROGRESS</strong>
+                        <span>WITH SHARED PURPOSE</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- DECORATIVE RIBBON -->
+        <div class="ugb-ribbon">
+            <span class="ribbon-blue"></span>
+            <span class="ribbon-red"></span>
+            <span class="ribbon-gold"></span>
+        </div>
+
+    </header>
+
+
+
+    <!-- =========================================================
+         FORM AREA
+    ========================================================== -->
+    <main class="confederation-form-main">
+
+        <section class="confederation-form-card">
+
+            <!-- =================================================
+                 FORM HEADER
+            ================================================== -->
+            <div class="confederation-form-heading">
+                <h1>UNIVERSAL GUARDIANS BROTHERHOOD</h1>
+                <p class="platform-name">UGB DIGITAL PLATFORM</p>
+                <div class="heading-gold-line"></div>
+                <h2>UGB Membership Form</h2>
+                <p class="heading-subtitle">Centralized Membership Registration &amp; Member Record Verification</p>
+            </div>
+
+            <div class="submission-purpose">
+                <div class="purpose-item">
+                    <div class="purpose-icon">♟</div><strong>ONE<br>MEMBER RECORD</strong><span>Centralized
+                        UGB<br>membership profile</span>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">◈</div><strong>UGB<br>IDENTITY</strong><span>Prepared for your<br>UGB ID
+                        record</span>
+                </div>
+                <div class="purpose-item">
+                    <div class="purpose-icon">✓</div><strong>REVIEW &amp;<br>VERIFICATION</strong><span>Submitted
+                        for<br>official review</span>
+                </div>
+            </div>
+
+            <div class="form-stars-divider"><span></span><strong>★ ★ ★</strong><span></span></div>
+
+            <form id="membershipForm" class="confederation-submission-form" action="#" method="post"
+                enctype="multipart/form-data">
+
+                <div class="official-field">
+                    <div class="field-heading">
+                        <div class="field-number">1</div>
+                        <div>
+                            <div class="membership-choice-title">Membership Status</div>
+                            <p>Tell us whether you are an existing UGB member or a new applicant.</p>
+                        </div>
+                    </div>
+                    <div class="membership-choice-list">
+                        <label class="membership-choice"><input type="radio" name="membershipStatus"
+                                value="existing-known-id" required><span><strong>Existing Member — I know my UGB ID
+                                    Number</strong><small>Enter your existing UGB ID below so your record can be
+                                    verified and linked.</small></span></label>
+                        <label class="membership-choice"><input type="radio" name="membershipStatus"
+                                value="existing-unknown-id" required><span><strong>Existing Member — I do not know my
+                                    UGB ID Number</strong><small>Your identifying information will be used for record
+                                    search and review. A new ID will not be created
+                                    automatically.</small></span></label>
+                        <label class="membership-choice"><input type="radio" name="membershipStatus" value="new-member"
+                                required><span><strong>New Member — I am registering</strong><small>Your application
+                                    will be reviewed before any permanent UGB ID Number is
+                                    issued.</small></span></label>
+                    </div>
+                    <div class="membership-grid membership-id-field">
+
+                        <div class="membership-control">
+
+                            <label for="existingUgbId">
+                                Existing UGB ID Number
+                            </label>
+
+                            <input id="existingUgbId" name="existingUgbId" type="text" placeholder="Enter if known">
+
+                            <span class="field-help">
+                                Leave blank if you do not know your existing UGB ID
+                                or you are a new member.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="official-field">
+                    <div class="field-heading">
+                        <div class="field-number">2</div>
+                        <div>
+                            <div class="membership-choice-title">Personal Information</div>
+                            <p>Enter the member’s personal details accurately.</p>
+                        </div>
+                    </div>
+                    <div class="membership-grid membership-id-field">
+                        <div class="membership-control"><label for="firstName">First Name <span
+                                    class="required">*</span></label><input id="firstName" name="firstName" required
+                                autocomplete="given-name"></div>
+                        <div class="membership-control"><label for="middleName">Middle Name</label><input
+                                id="middleName" name="middleName"></div>
+                        <div class="membership-control"><label for="lastName">Last Name <span
+                                    class="required">*</span></label><input id="lastName" name="lastName" required
+                                autocomplete="family-name"></div>
+                        <div class="membership-control"><label for="suffix">Suffix</label><input id="suffix"
+                                name="suffix" placeholder="Jr., Sr., III, etc."></div>
+                        <div class="membership-control"><label for="birthDate">Date of Birth <span
+                                    class="required">*</span></label><input id="birthDate" name="birthDate" type="date"
+                                required></div>
+                        <div class="membership-control"><label for="birthPlace">Place of Birth <span
+                                    class="required">*</span></label><input id="birthPlace" name="birthPlace" required>
+                        </div>
+                        <div class="membership-control"><label for="sex">Sex <span
+                                    class="required">*</span></label><select id="sex" name="sex" required>
+                                <option value="">-- Select --</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Prefer not to say</option>
+                            </select></div>
+                        <div class="membership-control"><label for="civilStatus">Civil Status</label><select
+                                id="civilStatus" name="civilStatus">
+                                <option value="">-- Select --</option>
+                                <option>Single</option>
+                                <option>Married</option>
+                                <option>Widowed</option>
+                                <option>Separated</option>
+                                <option>Other</option>
+                            </select></div>
+                        <div class="membership-control"><label for="nationality">Nationality <span
+                                    class="required">*</span></label><input id="nationality" name="nationality"
+                                required></div>
+
+                        <div class="membership-control member-photo-box">
+
+                            <label for="memberPhoto">
+                                Member Photo
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="member-photo-upload-layout">
+
+                                <!-- UPLOAD AREA -->
+                                <label class="member-photo-upload" for="memberPhoto">
+
+                                    <span class="member-photo-upload-icon">⇧</span>
+
+                                    <strong>Upload Member Photo</strong>
+
+                                    <span>Click to select a clear recent photo</span>
+
+                                    <small>PNG, JPG/JPEG or WEBP</small>
+
+                                    <input id="memberPhoto" name="memberPhoto" type="file"
+                                        accept="image/png,image/jpeg,image/webp" required>
+
+                                </label>
+
+                                <!-- PHOTO PREVIEW -->
+                                <div class="member-photo-preview-panel">
+
+                                    <span class="member-photo-preview-title">
+                                        PHOTO PREVIEW
+                                    </span>
+
+                                    <div class="member-photo-preview" id="memberPhotoPreview">
+
+                                        <div class="member-photo-placeholder">
+
+                                            <span class="member-photo-placeholder-icon">
+                                                ♙
+                                            </span>
+
+                                            <small>
+                                                Your photo will appear here
+                                            </small>
+
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                            <span class="field-help">
+                                Please upload a clear, recent front-facing photo.
+                            </span>
+
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">3</div>
+                            <div>
+                                <div class="membership-choice-title">Contact Information</div>
+                                <p>Provide current contact details that UGB may use for authorized membership
+                                    communication.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="membership-grid">
+                            <div class="membership-control"><label for="mobilePrimary">Primary Mobile Number <span
+                                        class="required">*</span></label><input id="mobilePrimary" name="mobilePrimary"
+                                    type="tel" required autocomplete="tel" placeholder="e.g. +63 9XX XXX XXXX"></div>
+                            <div class="membership-control"><label for="mobileSecondary">Secondary Mobile / Contact
+                                    Number</label><input id="mobileSecondary" name="mobileSecondary" type="tel"></div>
+                            <div class="membership-control"><label for="email">Email Address</label><input id="email"
+                                    name="email" type="email" autocomplete="email" placeholder="name@example.com"></div>
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">4</div>
+                            <div>
+                                <div class="membership-choice-title">Social Media Profiles</div>
+                                <p>Optional — add personal social or professional profile links.</p>
+                            </div>
+                        </div>
+                        <div class="membership-grid">
+                            <div class="membership-control"><label for="facebookProfile">Facebook Profile
+                                    Link</label><input id="facebookProfile" name="facebookProfile" type="url"
+                                    placeholder="https://www.facebook.com/..."></div>
+                            <div class="membership-control"><label for="instagramProfile">Instagram Profile
+                                    Link</label><input id="instagramProfile" name="instagramProfile" type="url"
+                                    placeholder="https://www.instagram.com/..."></div>
+                            <div class="membership-control"><label for="tiktokProfile">TikTok Profile Link</label><input
+                                    id="tiktokProfile" name="tiktokProfile" type="url"
+                                    placeholder="https://www.tiktok.com/@..."></div>
+                            <div class="membership-control"><label for="otherSocialProfile">Other Social / Professional
+                                    Profile</label><input id="otherSocialProfile" name="otherSocialProfile" type="url"
+                                    placeholder="LinkedIn, YouTube, X or another profile"></div>
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">5</div>
+                            <div>
+                                <div class="membership-choice-title">Residential Address</div>
+                                <p>Enter the member’s current residential address.</p>
+                            </div>
+                        </div>
+                        <div class="membership-grid">
+                            <div class="membership-control"><label for="houseStreet">House No. / Street <span
+                                        class="required">*</span></label><input id="houseStreet" name="houseStreet"
+                                    required autocomplete="street-address"></div>
+                            <div class="membership-control"><label for="barangay">Barangay <span
+                                        class="required">*</span></label><input id="barangay" name="barangay" required>
+                            </div>
+                            <div class="membership-control"><label for="cityMunicipality">City / Municipality <span
+                                        class="required">*</span></label><input id="cityMunicipality"
+                                    name="cityMunicipality" required></div>
+                            <div class="membership-control"><label for="province">Province <span
+                                        class="required">*</span></label><input id="province" name="province" required>
+                            </div>
+                            <div class="membership-control"><label for="region">Region <span
+                                        class="required">*</span></label><input id="region" name="region" required>
+                            </div>
+                            <div class="membership-control"><label for="postalCode">ZIP / Postal Code</label><input
+                                    id="postalCode" name="postalCode" autocomplete="postal-code"></div>
+                            <div class="membership-control"><label for="country">Country <span
+                                        class="required">*</span></label><input id="country" name="country"
+                                    value="Philippines" required autocomplete="country-name"></div>
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">6</div>
+                            <div>
+                                <div class="membership-choice-title">UGB Organizational Information</div>
+                                <p>Connect the member to the correct UGB organizational structure.</p>
+                            </div>
+                        </div>
+                        <div class="membership-grid">
+                            <div class="membership-control"><label for="confederation">Central Confederation <span
+                                        class="required">*</span></label><select id="confederation" name="confederation"
+                                    required>
+                                    <option value="">-- Select Central Confederation --</option>
+                                    <option value="GTF">GUARDIANS TRANSNATIONAL FORCES (GTF)</option>
+                                    <option value="GMS">GUARDIANS MULTINATIONAL SOCIETY (GMS)</option>
+                                    <option value="GOB">GUARDIANS ORIGINAL BRANCHES (GOB)</option>
+                                    <option value="GDC">GUARDIANS DIPLOMATIC CORPS (GDC)</option>
+                                    <option value="GGH">GUARDIANS GLOBAL HEIGHTS (GGH)</option>
+                                    <option value="GWR">GUARDIANS WORLDWIDE RANGES (GWR)</option>
+                                    <option value="GEL">GUARDIANS EMIGRANT LEGION (GEL)</option>
+                                    <option value="GAF">GUARDIANS ALLIED FORCES (GAF)</option>
+                                    <option value="GJC">GUARDIANS JOINT COMMAND (GJC)</option>
+                                    <option value="GSU">GUARDIANS SUPPORT UNIT (GSU)</option>
+                                    <option value="GMR">GUARDIANS MOTOR RIDERS (GMR)</option>
+                                    <option value="GI1stCC">GI 1ST CENTRAL COMMAND (GI1stCC)</option>
+                                    <option value="GI2ndCC">GI 2ND CENTRAL COMMAND (GI2ndCC)</option>
+                                    <option value="GI3rdCC">GI 3RD CENTRAL COMMAND (GI3rdCC)</option>
+                                    <option value="GI4thCC">GI 4TH CENTRAL COMMAND (GI4thCC)</option>
+                                    <option value="GI5thCC">GI 5TH CENTRAL COMMAND (GI5thCC)</option>
+                                    <option value="GI6thCC">GI 6TH CENTRAL COMMAND (GI6thCC)</option>
+                                    <option value="GI7thCC">GI 7TH CENTRAL COMMAND (GI7thCC)</option>
+                                    <option value="GI8thCC">GI 8TH CENTRAL COMMAND (GI8thCC)</option>
+                                    <option value="GI9thCC">GI 9TH CENTRAL COMMAND (GI9thCC)</option>
+                                    <option value="GI10thCC">GI 10TH CENTRAL COMMAND (GI10thCC)</option>
+                                    <option value="GI11thCC">GI 11TH CENTRAL COMMAND (GI11thCC)</option>
+                                    <option value="GI12thCC">GI 12TH CENTRAL COMMAND (GI12thCC)</option>
+                                    <option value="GI13thCC">GI 13TH CENTRAL COMMAND (GI13thCC)</option>
+                                    <option value="GI14thCC">GI 14TH CENTRAL COMMAND (GI14thCC)</option>
+                                    <option value="GI15thCC">GI 15TH CENTRAL COMMAND (GI15thCC)</option>
+                                    <option value="GI16thCC">GI 16TH CENTRAL COMMAND (GI16thCC)</option>
+                                    <option value="GI17thCC">GI 17TH CENTRAL COMMAND (GI17thCC)</option>
+                                    <option value="GI18thCC">GI 18TH CENTRAL COMMAND (GI18thCC)</option>
+                                    <option value="GI19thCC">GI 19TH CENTRAL COMMAND (GI19thCC)</option>
+                                    <option value="GI20thCC">GI 20TH CENTRAL COMMAND (GI20thCC)</option>
+                                    <option value="GI21stCC">GI 21ST CENTRAL COMMAND (GI21stCC)</option>
+                                    <option value="GI22ndCC">GI 22ND CENTRAL COMMAND (GI22ndCC)</option>
+                                    <option value="GI23rdCC">GI 23RD CENTRAL COMMAND (GI23rdCC)</option>
+                                    <option value="NCRCL">RGIA-NATIONAL CAPITAL REGION CENTRAL LEAGUE (NCRCL)</option>
+                                    <option value="NLCL">RGIA-NORTHERN LUZON CENTRAL LEAGUE (NLCL)</option>
+                                    <option value="CLCL">RGIA-CENTRAL LUZON CENTRAL LEAGUE (CLCL)</option>
+                                    <option value="SLCL">RGIA-SOUTHERN LUZON CENTRAL LEAGUE (SLCL)</option>
+                                    <option value="EVCL">RGIA-EASTERN VISAYAS CENTRAL LEAGUE (EVCL)</option>
+                                    <option value="CWVCL">RGIA-CENTRAL WESTERN VISAYAS CENTRAL LEAGUE (CWVCL)</option>
+                                    <option value="EMCL">RGIA-EASTERN MINDANAO CENTRAL LEAGUE (EMCL)</option>
+                                    <option value="WMCL">RGIA-WESTERN MINDANAO CENTRAL LEAGUE (WMCL)</option>
+                                    <option value="OCL">RGIA-OVERSEAS CENTRAL LEAGUE (OCL)</option>
+                                    <option value="GBICC">GBI CENTRAL COMMAND (GBICC)</option>
+                                    <option value="GUN">GUARDIANS UNION NATIONALIST (GUN)</option>
+                                </select></div>
+                            <div class="membership-control"><label for="umbrellaGroup">Umbrella / Group <span
+                                        class="required">*</span></label><input id="umbrellaGroup" name="umbrellaGroup"
+                                    required placeholder="Enter official group name"></div>
+                            <div class="membership-control"><label for="chapterUnit">Chapter / Unit</label><input
+                                    id="chapterUnit" name="chapterUnit"></div>
+                            <div class="membership-control"><label for="positionRole">Position / Role</label><input
+                                    id="positionRole" name="positionRole" placeholder="Member, Officer, etc."></div>
+                            <div class="membership-control"><label for="dateJoined">Date Joined UGB</label><input
+                                    id="dateJoined" name="dateJoined" type="date"></div>
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">7</div>
+                            <div>
+                                <div class="membership-choice-title">Emergency Contact</div>
+                                <p>Provide one person UGB may contact when appropriate in an emergency.</p>
+                            </div>
+                        </div>
+                        <div class="membership-grid">
+                            <div class="membership-control"><label for="emergencyName">Full Name <span
+                                        class="required">*</span></label><input id="emergencyName" name="emergencyName"
+                                    required></div>
+                            <div class="membership-control"><label for="emergencyRelationship">Relationship <span
+                                        class="required">*</span></label><input id="emergencyRelationship"
+                                    name="emergencyRelationship" required></div>
+                            <div class="membership-control"><label for="emergencyMobile">Primary Contact Number <span
+                                        class="required">*</span></label><input id="emergencyMobile"
+                                    name="emergencyMobile" type="tel" required></div>
+                            <div class="membership-control"><label for="emergencyAlternate">Alternate Contact
+                                    Number</label><input id="emergencyAlternate" name="emergencyAlternate" type="tel">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="official-field">
+                        <div class="field-heading">
+                            <div class="field-number">8</div>
+                            <div>
+                                <div class="membership-choice-title">Declaration & Consent</div>
+                                <p>Review the information before submitting it for UGB membership review.</p>
+                            </div>
+                        </div>
+                        <p class="membership-section-note">Your submission is an application or member-record
+                            verification
+                            request. Submission alone does not issue a new UGB ID Number or approve membership.</p>
+                        <label class="consent-box"><input type="checkbox" name="accuracyDeclaration" required><span>I
+                                confirm that the information I provided is true and accurate to the best of my
+                                knowledge.</span></label>
+                        <label class="consent-box"><input type="checkbox" name="dataAcknowledgment" required><span>I
+                                acknowledge that the information submitted will be processed for authorized UGB
+                                membership
+                                administration, verification, communication and related organizational purposes, subject
+                                to
+                                applicable UGB policies and privacy requirements.</span></label>
+                    </div>
+
+                    <button type="submit" class="official-submit-button"><span class="submit-plane">➤</span><span>SUBMIT
+                            MEMBERSHIP INFORMATION</span></button>
+                    <p class="submission-note"><span class="note-shield">◈</span>This form is currently the
+                        membership-form
+                        frontend. Backend submission and approval workflow will be connected separately.</p>
+            </form>
+        </section>
+    </main>
+
+    <script src="membership.js" defer></script>
+
+</body>
+
+</html>
